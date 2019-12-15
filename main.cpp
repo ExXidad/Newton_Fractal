@@ -2,6 +2,11 @@
 #include "Function.h"
 #include "Complex.h"
 
+void draw(const std::vector<std::vector<double>> &XY,
+          Function &function,
+          const double xRangeMin, const double xRangeMax,
+          const double yRangeMin, const double yRangeMax);
+
 int main() {
 
     long maxSteps = 100;
@@ -14,12 +19,13 @@ int main() {
     double yRangeMax = 5;
 
     //number of points in range
-    long xResolution = 5;
-    long yResolution = 5;
+    long xResolution = 400;
+    long yResolution = 400;
 
-    std::cout << "Enter polynomial order: ";
-    std::cin >> order;
-    std::cout << std::endl;
+//    std::cout << "Enter polynomial order: ";
+//    std::cin >> order;
+//    std::cout << std::endl;
+    order = 4;
 
     //function
     Function function(order);
@@ -27,7 +33,7 @@ int main() {
 
     //z0 z0'
     std::vector<std::vector<double>>
-            XY(4, std::vector<double>((xResolution+1)*(yResolution+1), 0));
+            XY(4, std::vector<double>((xResolution + 1) * (yResolution + 1), 0));
     //
     long posCounter = 0;
     Complex result(0, 0);
@@ -41,13 +47,12 @@ int main() {
             XY[0][posCounter] = z0.getRe();
             XY[1][posCounter] = z0.getIm();
             XY[2][posCounter] = result.getRe();
-            XY[3][posCounter] = result.getRe();
+            XY[3][posCounter] = result.getIm();
             ++posCounter;
         }
     }
 
-
-    draw(XY,xRangeMin,xRangeMax,yRangeMin,yRangeMax);
+    draw(XY, function, xRangeMin, xRangeMax, yRangeMin, yRangeMax);
 
     return 0;
 }

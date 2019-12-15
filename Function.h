@@ -13,6 +13,10 @@ private:
     std::vector<double> funcCoef, derCoef;
     long polyOrder;
 public:
+    std::vector<Complex> roots{Complex(1, 0),
+                               Complex(-0.5, sqrt(3) / 2),
+                               Complex(-0.5, -sqrt(3) / 2)};
+
     Function(const long &order);
 
     void calcDerivative();
@@ -22,7 +26,7 @@ public:
     Complex fDer(const Complex &z0);
 
     Complex newton(const Complex &z0, const double reqPrecision,
-                  const long maxSteps);
+                   const long maxSteps);
 
     void enterPoly();
 

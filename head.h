@@ -12,10 +12,4 @@
 #include "Complex.h"
 
 
-
-void draw(const std::vector<std::vector<double>> &XY,
-          const double xRangeMin,const double xRangeMax,
-          const double yRangeMin,const double yRangeMax);
-
-
 #endif //NEWTON_HEAD_H
