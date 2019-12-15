@@ -4,6 +4,30 @@
 
 #include "Complex.h"
 
+void Complex::print() {
+    std::string sign;
+    if (Im >= 0) {
+        sign = "+";
+    } else {
+        sign = "-";
+    }
+    std::cout << Re << " " + sign + " " << std::abs(Im) << "i" << std::endl;
+}
+
+void Complex::enterNumber() {
+    std::cout << "Enter Re: ";
+    std::cin >> Re;
+    std::cout << std::endl;
+
+    std::cout << "Enter Im: ";
+    std::cin >> Im;
+    std::cout << std::endl;
+}
+
+double Complex::absC() {
+    return sqrt(Re * Re + Im * Im);
+}
+
 Complex sumC(const Complex z1, const Complex z2) {
     double re, im;
     re = z1.getRe() + z2.getRe();

@@ -1,6 +1,5 @@
 #include "head.h"
 #include "Function.h"
-#include "Complex.h"
 
 void draw(const std::vector<std::vector<double>> &XY,
           Function &function,
@@ -13,6 +12,8 @@ int main() {
     double reqPrecision = 0.01;
     long order;
 
+    //area to take values from
+    //yRange is imaginary part range
     double xRangeMin = -5;
     double xRangeMax = 5;
     double yRangeMin = -5;
@@ -31,7 +32,8 @@ int main() {
     Function function(order);
     function.printPoly();
 
-    //z0 z0'
+    //array consists of Re(z0) Im(z0) Re(z') Im(z')
+    //where z0 - initial point, z' - convergence point
     std::vector<std::vector<double>>
             XY(4, std::vector<double>((xResolution + 1) * (yResolution + 1), 0));
     //
@@ -52,6 +54,7 @@ int main() {
         }
     }
 
+    //does graphics
     draw(XY, function, xRangeMin, xRangeMax, yRangeMin, yRangeMax);
 
     return 0;

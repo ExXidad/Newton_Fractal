@@ -17,31 +17,11 @@ public:
         Im = im;
     }
 
-    void print() {
-        std::string sign;
-        if (Im >= 0) {
-            sign = "+";
-        } else {
-            sign = "-";
-        }
-        std::cout << Re << " " + sign + " " << std::abs(Im) << "i" << std::endl;
-    }
+    void print();
 
-    void enterNumber() {
-        std::cout << "Enter Re: ";
-        std::cin >> Re;
-        std::cout << std::endl;
+    void enterNumber();
 
-        std::cout << "Enter Im: ";
-        std::cin >> Im;
-        std::cout << std::endl;
-    }
-
-
-
-    double absC() {
-        return sqrt(Re * Re + Im * Im);
-    }
+    double absC();
 
 
     double getRe() const {

@@ -8,6 +8,7 @@
 #include "head.h"
 #include "Complex.h"
 
+
 class Function {
 private:
     std::vector<double> funcCoef, derCoef;

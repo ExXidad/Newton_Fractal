@@ -5,7 +5,6 @@
 #include "head.h"
 #include <SFML/Graphics.hpp>
 #include "Function.h"
-#include "Complex.h"
 
 void draw(const std::vector<std::vector<double>> &XY, Function &function,
           const double xRangeMin, const double xRangeMax,
@@ -20,11 +19,13 @@ void draw(const std::vector<std::vector<double>> &XY, Function &function,
 
     std::vector<sf::Color> colors{sf::Color::Red, sf::Color::Green, sf::Color::Blue};
 
-    //sf::ContextSettings settings;
-    //settings.antialiasingLevel = 8;
-    sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Newton fractal");
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 8;
+    sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Newton fractal", sf::Style::Default, settings);
 
     long len = XY[0].size();
+    //tolerance sets minimal difference of abs with true root
+    //if abs out of tolerance sets color to black
     double tolerance = 0.01;
     bool noMatches;
 
